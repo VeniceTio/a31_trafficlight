@@ -1,4 +1,11 @@
-package trafficlight;
+package trafficlight.View;
+
+import trafficlight.Model.Kehl;
+import trafficlight.Model.Strasbourg;
+import trafficlight.Model.TrafficLight;
+import trafficlight.View.GraphicalLight;
+import trafficlight.View.TextualLight;
+import trafficlight.View.TrafficLightView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,5 +47,13 @@ public class Menu extends JFrame{
     public void addGraphicalView(){
         TrafficLightView view = new GraphicalLight( this._trafficLight );
         this._trafficLight.add(view);
+    }
+    public void changeStrategy(){
+        if(_trafficLight.isStrasbourg()){
+            _trafficLight.setCity(new Kehl());
+        }
+        else{
+            _trafficLight.setCity(new Strasbourg());
+        }
     }
 }

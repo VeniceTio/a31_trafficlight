@@ -1,4 +1,4 @@
-package trafficlight;
+package trafficlight.Model;
 
 public enum LightColor {
 	GREEN,

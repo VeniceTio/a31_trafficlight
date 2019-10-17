@@ -1,4 +1,7 @@
-package trafficlight;
+package trafficlight.View;
+
+import trafficlight.Model.LightColor;
+import trafficlight.Model.TrafficLight;
 
 import java.awt.BorderLayout;
 
@@ -21,7 +24,7 @@ public class TextualLight extends TrafficLightView {
 	}
 
 	@Override
-	public void update( LightColor color, Boolean isOn ) {
+	public void update(LightColor color, Boolean isOn ) {
 		_textArea.append(
 			"State: "+(isOn ? "On, Color: "+color : "Off")+"\n"
 		);

@@ -1,4 +1,7 @@
-package trafficlight;
+package trafficlight.Controls;
+
+import trafficlight.Model.TrafficLight;
+import trafficlight.View.Menu;
 
 public class TrafficManager {
     private TrafficLight _trafficLight;

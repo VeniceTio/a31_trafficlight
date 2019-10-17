@@ -1,4 +1,7 @@
-package trafficlight;
+package trafficlight.View;
+
+import trafficlight.Model.TrafficLight;
+import trafficlight.uttilities.TrafficLightObserver;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

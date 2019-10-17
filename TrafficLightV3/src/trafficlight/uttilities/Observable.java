@@ -1,4 +1,6 @@
-package trafficlight;
+package trafficlight.uttilities;
+
+import trafficlight.Model.LightColor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,7 +17,7 @@ public abstract class Observable {
 		_observers.add(observer);
 	}
 
-	public void notifyObservers( LightColor color, Boolean isOn) {
+	public void notifyObservers(LightColor color, Boolean isOn) {
 		for (TrafficLightObserver observer : _observers)
 			observer.update( color, isOn );
 	}

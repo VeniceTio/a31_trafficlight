@@ -1,4 +1,7 @@
-package trafficlight;
+package trafficlight.View;
+
+import trafficlight.Model.LightColor;
+import trafficlight.Model.TrafficLight;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,7 +26,7 @@ public class GraphicalLight extends TrafficLightView {
 	}
 
 	@Override
-	public void update( LightColor color, Boolean isOn ) {
+	public void update(LightColor color, Boolean isOn ) {
 		if ( isOn ) {
 			switch ( color ) {
 				case RED:
