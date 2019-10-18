@@ -23,7 +23,7 @@ public class TrafficLight extends Observable {
 		notifyObservers( _color, _isOn ) ;
 	}
 	public City getCity(){return _city;}
-	public void setCity(City city){_city = city;_isStrasbourg=!_isStrasbourg;}
+	public void setCity(City city){_city = city;_isStrasbourg=!_isStrasbourg;System.out.println("change strategie");}
 	public LightColor getColor(){
 	    return this._color;
     }

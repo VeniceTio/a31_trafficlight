@@ -1,5 +1,6 @@
 package trafficlight.Controls;
 
+import trafficlight.Model.City;
 import trafficlight.Model.LightColor;
 import trafficlight.Model.TrafficLight;
 import trafficlight.View.TrafficLightView;
@@ -20,5 +21,10 @@ public class TrafficLightManager {
     }
 
     public LightColor getColor(){return _trafficLight.getColor();}
+    public Boolean getIsOn(){return _trafficLight.getIsOn();}
+    public Boolean getIsStrasbourg(){return _trafficLight.isStrasbourg();}
+    public void changeCity(City city){_trafficLight.setCity(city);}
+    public void turnOnOff(){_trafficLight.onOff();}
+    public void changeColor(){_trafficLight.swicthColor();}
     public void addListenner(TrafficLightView trafficLightView){_trafficLight.add(trafficLightView);}
 }

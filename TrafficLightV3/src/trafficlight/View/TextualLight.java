@@ -1,5 +1,6 @@
 package trafficlight.View;
 
+import trafficlight.Controls.TrafficLightManager;
 import trafficlight.Model.LightColor;
 import trafficlight.Model.TrafficLight;
 
@@ -11,15 +12,15 @@ public class TextualLight extends TrafficLightView {
 
 	private JTextArea _textArea;
 
-	public TextualLight(TrafficLight trafficLight) {
-		super(trafficLight);
+	public TextualLight() {
+		super();
 
 		this.setTitle("Textual view");
 
 		_textArea = new JTextArea();
 		_textArea.setEditable(false);
 		this.getContentPane().add(_textArea, BorderLayout.CENTER);
-        update(trafficLight.getColor(),trafficLight.getIsOn());
+        update(TrafficLightManager.getInstance().getColor(),TrafficLightManager.getInstance().getIsOn());
 		this.setVisible(true);
 	}
 

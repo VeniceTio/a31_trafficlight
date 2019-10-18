@@ -13,17 +13,14 @@ import javax.swing.JPanel;
 
 public abstract class TrafficLightView extends JFrame implements TrafficLightObserver {
 
-	private TrafficLight _trafficLight;
 
-	public TrafficLightView( TrafficLight trafficLight ) {
-
-		_trafficLight = trafficLight;
+	public TrafficLightView() {
 
 		//this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		this.setSize(600, 480);
 		this.setLayout(new BorderLayout());
-
 	}
+	public void changeVisibility(){this.setVisible(false);}
 
 }
 

@@ -1,5 +1,6 @@
 package trafficlight.View;
 
+import trafficlight.Controls.TrafficLightManager;
 import trafficlight.Model.LightColor;
 import trafficlight.Model.TrafficLight;
 
@@ -10,24 +11,35 @@ import java.awt.event.ActionListener;
 
 public class TurnRightView extends TrafficLightDecorateur {
     private Timer _timer;
-    public TurnRightView(TrafficLightView trafficLightView, TrafficLight trafficLight){
-        super(trafficLightView, trafficLight);
+    private Color _colorPan = Color.GRAY;
+    private TrafficLightDecorateur _this;
+    public TurnRightView(TrafficLightView trafficLightView){
+        super(trafficLightView);
+        _this = this;
         this.setTitle("Turn Right View");
+        trafficLightView.changeVisibility();
 
         this.getColorPan().setBackground(Color.RED);
         this.getContentPane().add(this.getColorPan(), BorderLayout.CENTER);
-
-        update(trafficLight.getColor(),trafficLight.getIsOn());
         this.setVisible(true);
 
         ActionListener changeColor = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if (trafficLightView.getColorPan().get)
+                if (_colorPan==Color.GRAY){
+                    _this.getColorPan().setBackground(Color.ORANGE);
+                    _colorPan = Color.ORANGE;
+                }
+                else {
+                    _this.getColorPan().setBackground(Color.GRAY);
+                    _colorPan = Color.GRAY;
+                }
             }
-        }
+        };
 
-        Timer timer = new Timer(200,changeColor);
+        _timer = new Timer(500,changeColor);
+        _timer.start();
+        update(TrafficLightManager.getInstance().getColor(),TrafficLightManager.getInstance().getIsOn());
     }
 
     @Override
@@ -36,10 +48,15 @@ public class TurnRightView extends TrafficLightDecorateur {
             if (color==LightColor.RED){
                 _timer.start();
             }
+            else {
+                _timer.stop();
+                this.getColorPan().setBackground(Color.GRAY);
+            }
         }
         else {
             _timer.stop();
             this.getColorPan().setBackground(Color.GRAY);
         }
+
     }
 }

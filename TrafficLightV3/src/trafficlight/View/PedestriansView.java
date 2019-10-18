@@ -1,5 +1,6 @@
 package trafficlight.View;
 
+import trafficlight.Controls.TrafficLightManager;
 import trafficlight.Model.LightColor;
 import trafficlight.Model.TrafficLight;
 
@@ -7,14 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PedestriansView extends TrafficLightDecorateur {
-    public PedestriansView(TrafficLightView trafficLightView, TrafficLight trafficLight){
-        super(trafficLightView, trafficLight);
-        this.setTitle("Graphical view");
+    public PedestriansView(TrafficLightView trafficLightView){
+        super(trafficLightView);
+        this.setTitle("Pedestrian view");
+        trafficLightView.changeVisibility();
 
         this.getColorPan().setBackground(Color.RED);
         this.getContentPane().add(this.getColorPan(), BorderLayout.CENTER);
 
-        update(trafficLight.getColor(),trafficLight.getIsOn());
+        update(TrafficLightManager.getInstance().getColor(),TrafficLightManager.getInstance().getIsOn());
         this.setVisible(true);
     }
     @Override

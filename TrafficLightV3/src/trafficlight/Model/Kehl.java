@@ -18,7 +18,7 @@ public class Kehl implements City{
                 }
                 break;
             case RED:
-                trafficLight.setColor(LightColor.GREEN);
+                trafficLight.setColor(LightColor.ORANGE);
                 _history=LightColor.RED;
                 break;
             default:

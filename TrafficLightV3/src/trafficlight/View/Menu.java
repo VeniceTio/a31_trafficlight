@@ -1,5 +1,7 @@
 package trafficlight.View;
 
+import trafficlight.Controls.TrafficLightManager;
+import trafficlight.Controls.TrafficLightViewManager;
 import trafficlight.Model.City;
 import trafficlight.Model.Kehl;
 import trafficlight.Model.Strasbourg;
@@ -14,12 +16,10 @@ import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame{
 
-    private TrafficLight _trafficLight;
     private City[] _strategie = {new Strasbourg(),new Kehl()};
 
-    public Menu(TrafficLight tfl){
-        this._trafficLight = tfl;
-        _trafficLight.setCity(_strategie[0]);
+    public Menu(){
+        TrafficLightManager.getInstance().changeCity(_strategie[0]);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 480);
@@ -40,36 +40,58 @@ public class Menu extends JFrame{
                 addGraphicalView();
             }
         }));
+        buttons.add( new JButton( new AbstractAction("AddPedestriansView") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                addPedestriansView();
+            }
+        }));
+
+        buttons.add( new JButton( new AbstractAction("AddTurnRightView") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) { addTurnRightView();}
+        }));
         buttons.add( new JButton( new AbstractAction("On/Off") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                _trafficLight.onOff();
+                TrafficLightManager.getInstance().turnOnOff();
             }
         }));
 
         buttons.add( new JButton( new AbstractAction("Change color") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                _trafficLight.swicthColor();
+                TrafficLightManager.getInstance().changeColor();
             }
-        }));²
+        }));
+        buttons.add( new JButton( new AbstractAction("Change city") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                changeStrategy();
+            }
+        }));
         this.getContentPane().add(buttons);
         this.setVisible(true);
     }
     public void addTextualView(){
-        TrafficLightView view = new TextualLight( this._trafficLight );
-        this._trafficLight.add(view);
+        TrafficLightViewManager.getInstance().createTextualView();
     }
     public void addGraphicalView(){
-        TrafficLightView view = new GraphicalLight( this._trafficLight );
-        this._trafficLight.add(view);
+        TrafficLightViewManager.getInstance().createGraphicalView();
+    }
+    public void addPedestriansView(){
+        TrafficLightViewManager.getInstance().createPedestriansView();
+    }
+    public void addTurnRightView(){
+        TrafficLightViewManager.getInstance().createTurnRightView();
     }
     public void changeStrategy(){
-        if(_trafficLight.isStrasbourg()){
-            _trafficLight.setCity(_strategie[1]);
+        System.out.println("action");
+        if(TrafficLightManager.getInstance().getIsStrasbourg()){
+            TrafficLightManager.getInstance().changeCity(_strategie[1]);
         }
         else{
-            _trafficLight.setCity(_strategie[0]);
+            TrafficLightManager.getInstance().changeCity(_strategie[0]);
         }
     }
 }

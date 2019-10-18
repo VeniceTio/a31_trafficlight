@@ -7,8 +7,8 @@ import javax.swing.*;
 public abstract class TrafficLightDecorateur extends TrafficLightView {
     private JPanel _colorPanel;
     private TrafficLightView _trafficLightView;
-    TrafficLightDecorateur(TrafficLightView trafficLightView, TrafficLight trafficLight){
-        super(trafficLight);
+    TrafficLightDecorateur(TrafficLightView trafficLightView){
+        super();
         _trafficLightView = trafficLightView;
         _colorPanel = new JPanel();
     }

@@ -1,5 +1,6 @@
 package trafficlight.View;
 
+import trafficlight.Controls.TrafficLightManager;
 import trafficlight.Model.LightColor;
 import trafficlight.Model.TrafficLight;
 
@@ -12,18 +13,18 @@ public class GraphicalLight extends TrafficLightView {
 
 	private JPanel _colorPanel;
 
-	public GraphicalLight( TrafficLight trafficLight ) {
-		super(trafficLight);
-
+	public GraphicalLight() {
+		super();
 		this.setTitle("Graphical view");
 
 		_colorPanel = new JPanel();
 		_colorPanel.setBackground(Color.RED);
 		this.getContentPane().add(_colorPanel, BorderLayout.CENTER);
 
-		update(trafficLight.getColor(),trafficLight.getIsOn());
+		update(TrafficLightManager.getInstance().getColor(), TrafficLightManager.getInstance().getIsOn());
 		this.setVisible(true);
 	}
+
 
 	@Override
 	public void update(LightColor color, Boolean isOn ) {

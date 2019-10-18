@@ -12,29 +12,29 @@ public class TrafficLightViewManager {
 
     public static TrafficLightViewManager getInstance()
     {
-        if (INSTANCE == null)
-        {   INSTANCE = new TrafficLightViewManager();
+        if (INSTANCE == null) {
+            INSTANCE = new TrafficLightViewManager();
         }
         return INSTANCE;
     }
 
     public void createGraphicalView(){
-        TrafficLightView view = new GraphicalLight(); //modifier
+        TrafficLightView view = new GraphicalLight();
         _views.add(view);
         TrafficLightManager.getInstance().addListenner(view);
     }
     public void createTextualView(){
-        TrafficLightView view = new TextualLight(); // modifier
+        TrafficLightView view = new TextualLight();
         _views.add(view);
         TrafficLightManager.getInstance().addListenner(view);
     }
     public void createPedestriansView(){
-        TrafficLightView view = new PedestriansView(); // modifier
+        TrafficLightView view = new PedestriansView(new GraphicalLight());
         _views.add(view);
         TrafficLightManager.getInstance().addListenner(view);
     }
     public void createTurnRightView(){
-        TrafficLightView view = new TurnRightView(); // modifier
+        TrafficLightView view = new TurnRightView(new GraphicalLight());
         _views.add(view);
         TrafficLightManager.getInstance().addListenner(view);
     }
