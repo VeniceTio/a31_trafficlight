@@ -8,7 +8,7 @@ public class TrafficLight extends Observable {
 	private LightColor _color = LightColor.RED;
 	private LightColor _history = LightColor.ORANGE;
 	private City _city;
-	private Boolean _isStrasbourg = true;
+	private Boolean _isStrasbourg = false;
 
 	public TrafficLight() {}
 

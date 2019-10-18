@@ -11,15 +11,15 @@ import javax.swing.JPanel;
 
 public class GraphicalLight extends TrafficLightView {
 
-	private JPanel _colorPanel;
+	private JPanel _panel;
 
 	public GraphicalLight() {
 		super();
 		this.setTitle("Graphical view");
 
-		_colorPanel = new JPanel();
-		_colorPanel.setBackground(Color.RED);
-		this.getContentPane().add(_colorPanel, BorderLayout.CENTER);
+		_panel = new JPanel();
+		_panel.setBackground(Color.RED);
+		this.getContentPane().add(_panel, BorderLayout.CENTER);
 
 		update(TrafficLightManager.getInstance().getColor(), TrafficLightManager.getInstance().getIsOn());
 		this.setVisible(true);
@@ -31,20 +31,20 @@ public class GraphicalLight extends TrafficLightView {
 		if ( isOn ) {
 			switch ( color ) {
 				case RED:
-					_colorPanel.setBackground(Color.RED);
+					_panel.setBackground(Color.RED);
 					break;
 				case GREEN:
-					_colorPanel.setBackground(Color.GREEN);
+					_panel.setBackground(Color.GREEN);
 					break;
 				case ORANGE:
-					_colorPanel.setBackground(Color.ORANGE);
+					_panel.setBackground(Color.ORANGE);
 					break;
 				default:
 					break;
 			}
 		}
 		else {
-			_colorPanel.setBackground(Color.GRAY);
+			_panel.setBackground(Color.GRAY);
 		}
 	}
 

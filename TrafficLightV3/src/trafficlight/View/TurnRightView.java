@@ -13,6 +13,7 @@ public class TurnRightView extends TrafficLightDecorateur {
     private Timer _timer;
     private Color _colorPan = Color.GRAY;
     private TrafficLightDecorateur _this;
+
     public TurnRightView(TrafficLightView trafficLightView){
         super(trafficLightView);
         _this = this;

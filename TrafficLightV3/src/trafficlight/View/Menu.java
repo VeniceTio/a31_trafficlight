@@ -17,15 +17,16 @@ import java.awt.event.ActionEvent;
 public class Menu extends JFrame{
 
     private City[] _strategie = {new Strasbourg(),new Kehl()};
+    private JDesktopPane _desktop = new JDesktopPane();
+    JComboBox _cbo = new JComboBox(new DefaultComboBoxModel(TrafficLightViewManager.getInstance().getViews()));
 
     public Menu(){
         TrafficLightManager.getInstance().changeCity(_strategie[0]);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 480);
+        this.setSize(1100, 500);
         this.setLayout(new BorderLayout());
-        this.setTitle("Menu");
-
+        this.setTitle("Traffic Light");
         JPanel buttons = new JPanel();
         buttons.add( new JButton( new AbstractAction("AddTextualView") {
             @Override
@@ -70,7 +71,15 @@ public class Menu extends JFrame{
                 changeStrategy();
             }
         }));
-        this.getContentPane().add(buttons);
+        buttons.add(_cbo);
+        buttons.add( new JButton( new AbstractAction("Delete frame") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                TrafficLightViewManager.getInstance().deleteView((TrafficLightView)_cbo.getSelectedItem());
+            }
+        }));
+        this.getContentPane().add(buttons,BorderLayout.NORTH);
+        this.getContentPane().add(_desktop,BorderLayout.CENTER);
         this.setVisible(true);
     }
     public void addTextualView(){
@@ -85,6 +94,7 @@ public class Menu extends JFrame{
     public void addTurnRightView(){
         TrafficLightViewManager.getInstance().createTurnRightView();
     }
+    public JDesktopPane getDesktop(){return _desktop;}
     public void changeStrategy(){
         System.out.println("action");
         if(TrafficLightManager.getInstance().getIsStrasbourg()){

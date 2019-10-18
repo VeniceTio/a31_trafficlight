@@ -7,7 +7,7 @@ public class TrafficManager {
     private TrafficLight _trafficLight;
 
 	public TrafficManager() {
-		Menu _menu = new Menu();
+		TrafficLightViewManager.getInstance();
 	}
 
 	public static void main(String[] args) {
