@@ -1,5 +1,6 @@
 package trafficlight.View;
 
+import trafficlight.Model.City;
 import trafficlight.Model.Kehl;
 import trafficlight.Model.Strasbourg;
 import trafficlight.Model.TrafficLight;
@@ -14,9 +15,11 @@ import java.awt.event.ActionEvent;
 public class Menu extends JFrame{
 
     private TrafficLight _trafficLight;
+    private City[] _strategie = {new Strasbourg(),new Kehl()};
 
     public Menu(TrafficLight tfl){
         this._trafficLight = tfl;
+        _trafficLight.setCity(_strategie[0]);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(600, 480);
@@ -37,6 +40,19 @@ public class Menu extends JFrame{
                 addGraphicalView();
             }
         }));
+        buttons.add( new JButton( new AbstractAction("On/Off") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                _trafficLight.onOff();
+            }
+        }));
+
+        buttons.add( new JButton( new AbstractAction("Change color") {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                _trafficLight.swicthColor();
+            }
+        }));²
         this.getContentPane().add(buttons);
         this.setVisible(true);
     }
@@ -50,10 +66,10 @@ public class Menu extends JFrame{
     }
     public void changeStrategy(){
         if(_trafficLight.isStrasbourg()){
-            _trafficLight.setCity(new Kehl());
+            _trafficLight.setCity(_strategie[1]);
         }
         else{
-            _trafficLight.setCity(new Strasbourg());
+            _trafficLight.setCity(_strategie[0]);
         }
     }
 }

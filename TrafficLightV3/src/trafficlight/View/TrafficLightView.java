@@ -23,23 +23,6 @@ public abstract class TrafficLightView extends JFrame implements TrafficLightObs
 		this.setSize(600, 480);
 		this.setLayout(new BorderLayout());
 
-		JPanel buttons = new JPanel();
-
-		buttons.add( new JButton( new AbstractAction("On/Off") {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				_trafficLight.onOff();
-			}
-		}));
-
-		buttons.add( new JButton( new AbstractAction("Change color") {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				_trafficLight.swicthColor();
-			}
-		}));
-
-		this.getContentPane().add(buttons, BorderLayout.SOUTH);
 	}
 
 }

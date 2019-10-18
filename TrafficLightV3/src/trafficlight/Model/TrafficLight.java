@@ -7,7 +7,7 @@ public class TrafficLight extends Observable {
 	private Boolean _isOn = false;
 	private LightColor _color = LightColor.RED;
 	private LightColor _history = LightColor.ORANGE;
-	private City _city = new Strasbourg();
+	private City _city;
 	private Boolean _isStrasbourg = true;
 
 	public TrafficLight() {}
@@ -15,7 +15,6 @@ public class TrafficLight extends Observable {
 	public void onOff() {
 		_isOn = !_isOn;
 		_color = LightColor.RED;
-		_history = LightColor.ORANGE;
 		notifyObservers( _color, _isOn );
 	}
 
