@@ -25,4 +25,9 @@ public class Kehl implements City{
                 return;
         }
     }
+
+    @Override
+    public String getType() {
+        return "Kehl";
+    }
 }

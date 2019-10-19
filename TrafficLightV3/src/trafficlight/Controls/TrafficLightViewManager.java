@@ -5,11 +5,7 @@ import trafficlight.View.*;
 import trafficlight.View.Menu;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Vector;
-
-import static java.awt.SystemColor.menu;
 
 public class TrafficLightViewManager {
     private Vector<TrafficLightView> _views = new Vector<TrafficLightView>();
@@ -29,27 +25,28 @@ public class TrafficLightViewManager {
         return INSTANCE;
     }
 
-    public void createGraphicalView(){
+    public void createGraphicalView(int id){
         TrafficLightView view = new GraphicalLight();
-        addView(view);
+        addView(id,view);
     }
-    public void createTextualView(){
+    public void createTextualView(int id){
         TrafficLightView view = new TextualLight();
-        addView(view);
+        addView(id,view);
     }
-    public void createPedestriansView(){
+    public void createPedestriansView(int id){
         TrafficLightView view = new PedestriansView(new GraphicalLight());
-        addView(view);
+        addView(id,view);
     }
-    public void createTurnRightView(){
+    public void createTurnRightView(int id){
         TrafficLightView view = new TurnRightView(new GraphicalLight());
-        addView(view);
+        addView(id,view);
     }
-    public void addView(TrafficLightView view){
+    public void addView(int id,TrafficLightView view){
         _views.add(view);
         _frame.getDesktop().add(view);
         view.toFront();
-        TrafficLightManager.getInstance().addListenner(view);
+        view.update(TrafficLightManager.getInstance().getTrafficLight(id).getColor(),TrafficLightManager.getInstance().getTrafficLight(id).getIsOn());
+        TrafficLightManager.getInstance().getTrafficLight(id).add(view);
         view.setLocation(new Point(15*_frameCountY+100*_frameCountX, 15*_frameCountY));
         if(_frameCountY++>9){
             _frameCountY=1;

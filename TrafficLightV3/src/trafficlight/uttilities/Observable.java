@@ -1,6 +1,7 @@
 package trafficlight.uttilities;
 
 import trafficlight.Model.LightColor;
+import trafficlight.Model.TrafficLight;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,6 +22,7 @@ public abstract class Observable {
 		for (TrafficLightObserver observer : _observers)
 			observer.update( color, isOn );
 	}
+	public Collection<TrafficLightObserver> getObservers(){return _observers;}
 
 }
 

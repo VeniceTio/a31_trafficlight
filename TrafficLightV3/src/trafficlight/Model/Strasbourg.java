@@ -17,4 +17,9 @@ public class Strasbourg implements City {
                 return;
         }
     }
+
+    @Override
+    public String getType() {
+        return "Strasbourg";
+    }
 }

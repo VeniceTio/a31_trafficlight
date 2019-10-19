@@ -40,7 +40,6 @@ public class TurnRightView extends TrafficLightDecorateur {
 
         _timer = new Timer(500,changeColor);
         _timer.start();
-        update(TrafficLightManager.getInstance().getColor(),TrafficLightManager.getInstance().getIsOn());
     }
 
     @Override

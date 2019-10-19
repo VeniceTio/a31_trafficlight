@@ -16,7 +16,6 @@ public class PedestriansView extends TrafficLightDecorateur {
         this.getColorPan().setBackground(Color.RED);
         this.getContentPane().add(this.getColorPan(), BorderLayout.CENTER);
 
-        update(TrafficLightManager.getInstance().getColor(),TrafficLightManager.getInstance().getIsOn());
         this.setVisible(true);
     }
     @Override

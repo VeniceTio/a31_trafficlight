@@ -20,7 +20,6 @@ public class TextualLight extends TrafficLightView {
 		_textArea = new JTextArea();
 		_textArea.setEditable(false);
 		this.getContentPane().add(_textArea, BorderLayout.CENTER);
-        update(TrafficLightManager.getInstance().getColor(),TrafficLightManager.getInstance().getIsOn());
 		this.setVisible(true);
 	}
 

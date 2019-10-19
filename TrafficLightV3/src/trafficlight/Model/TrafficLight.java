@@ -6,37 +6,33 @@ public class TrafficLight extends Observable {
 
 	private Boolean _isOn = false;
 	private LightColor _color = LightColor.RED;
-	private LightColor _history = LightColor.ORANGE;
 	private City _city;
-	private Boolean _isStrasbourg = false;
+	private int _id;
+	private static int ID=0;
 
-	public TrafficLight() {}
+	public TrafficLight() {_id=ID;ID++;}
 
 	public void onOff() {
 		_isOn = !_isOn;
 		_color = LightColor.RED;
 		notifyObservers( _color, _isOn );
 	}
-
+	public int getID(){
+		return _id;
+	}
 	public void swicthColor() {
 		_city.changeColor(this);
 		notifyObservers( _color, _isOn ) ;
 	}
 	public City getCity(){return _city;}
-	public void setCity(City city){_city = city;_isStrasbourg=!_isStrasbourg;System.out.println("change strategie");}
+	public void setCity(City city){_city = city;}
 	public LightColor getColor(){
 	    return this._color;
     }
     void setColor(LightColor lightColor){
-		this._history = _color;
 		this._color = lightColor;}
     public Boolean getIsOn(){
 	    return this._isOn;
     }
-    public LightColor getHistory(){return _history;}
-    public Boolean isStrasbourg(){
-		return _isStrasbourg;
-	}
-
 }
 

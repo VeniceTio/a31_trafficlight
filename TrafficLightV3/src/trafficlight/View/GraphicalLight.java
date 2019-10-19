@@ -20,11 +20,8 @@ public class GraphicalLight extends TrafficLightView {
 		_panel = new JPanel();
 		_panel.setBackground(Color.RED);
 		this.getContentPane().add(_panel, BorderLayout.CENTER);
-
-		update(TrafficLightManager.getInstance().getColor(), TrafficLightManager.getInstance().getIsOn());
 		this.setVisible(true);
 	}
-
 
 	@Override
 	public void update(LightColor color, Boolean isOn ) {
