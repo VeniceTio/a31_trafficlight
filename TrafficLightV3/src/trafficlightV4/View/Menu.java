@@ -1,11 +1,8 @@
-package trafficlight.View;
+package trafficlightV4.View;
 
-import trafficlight.Controls.TrafficLightManager;
-import trafficlight.Controls.TrafficLightViewManager;
-import trafficlight.Model.City;
-import trafficlight.Model.Kehl;
-import trafficlight.Model.Strasbourg;
-import trafficlight.Model.TrafficLight;
+import trafficlightV4.Controls.TrafficLightManager;
+import trafficlightV4.Controls.TrafficLightViewManager;
+import trafficlightV4.Model.TrafficLight;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,17 +10,16 @@ import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame{
 
-    private City[] _strategie = {new Strasbourg(),new Kehl()};
     private JDesktopPane _desktop = new JDesktopPane();
     JComboBox _cboView = new JComboBox(new DefaultComboBoxModel(TrafficLightViewManager.getInstance().getViews()));
     JComboBox _cboTrafficLight = new JComboBox(new DefaultComboBoxModel(TrafficLightManager.getInstance().getTrafficLights()));
 
     public Menu(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1100, 500);
+        this.setSize(1650, 500);
         this.setLayout(new BorderLayout());
         this.setTitle("Traffic Light");
-        TrafficLightManager.getInstance().addTrafficLight(_strategie[0]);
+        TrafficLightManager.getInstance().addTrafficLight();
         JPanel buttons = new JPanel();
         buttons.add( new JButton( new AbstractAction("Add TrafficLight") {
             @Override
@@ -80,7 +76,7 @@ public class Menu extends JFrame{
         buttons.add( new JButton( new AbstractAction("Change city") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                changeStrategy(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
+                TrafficLightManager.getInstance().switchCity(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
             }
         }));
         buttons.add(_cboView);
@@ -97,7 +93,7 @@ public class Menu extends JFrame{
         this.setVisible(true);
     }
     public void addTrafficLight(){
-        TrafficLightManager.getInstance().addTrafficLight(_strategie[0]);
+        TrafficLightManager.getInstance().addTrafficLight();
     }
     public void deleteTrafficLight(int id){
         TrafficLightManager.getInstance().removeTrafficLight(id);
@@ -115,13 +111,4 @@ public class Menu extends JFrame{
         TrafficLightViewManager.getInstance().createTurnRightView(id);
     }
     public JDesktopPane getDesktop(){return _desktop;}
-    public void changeStrategy(int id){
-        System.out.println("action");
-        if(TrafficLightManager.getInstance().getTrafficLight(id).getCity().getType().equals(_strategie[0].getType())){
-            TrafficLightManager.getInstance().getTrafficLight(id).setCity(_strategie[1]);
-        }
-        else{
-            TrafficLightManager.getInstance().getTrafficLight(id).setCity(_strategie[0]);
-        }
-    }
 }

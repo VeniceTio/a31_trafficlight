@@ -1,11 +1,7 @@
-package trafficlight.View;
+package trafficlightV4.View;
 
-import trafficlight.Model.TrafficLight;
-import trafficlight.uttilities.TrafficLightObserver;
-
+import trafficlightV4.uttilities.TrafficLightObserver;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-
 import javax.swing.*;
 
 public abstract class TrafficLightView extends JInternalFrame implements TrafficLightObserver {

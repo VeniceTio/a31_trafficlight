@@ -1,15 +1,13 @@
-package trafficlight.Controls;
+package trafficlightV4.Controls;
 
-import trafficlight.Model.TrafficLight;
-import trafficlight.View.*;
-import trafficlight.View.Menu;
+import trafficlightV4.View.*;
+import trafficlightV4.View.Menu;
 
 import java.awt.*;
 import java.util.Vector;
 
 public class TrafficLightViewManager {
     private Vector<TrafficLightView> _views = new Vector<TrafficLightView>();
-    private int nbr;
     private Menu _frame;
     private static TrafficLightViewManager INSTANCE;
 
@@ -50,14 +48,13 @@ public class TrafficLightViewManager {
         view.setLocation(new Point(15*_frameCountY+100*_frameCountX, 15*_frameCountY));
         if(_frameCountY++>9){
             _frameCountY=1;
-            if(_frameCountX++>5){
+            if(_frameCountX++>10){
                 _frameCountY=1;
                 _frameCountX=1;
             }
         }
     }
     public Vector<TrafficLightView> getViews(){
-
         return _views;
     }
     public void deleteView(TrafficLightView trafficLightView){

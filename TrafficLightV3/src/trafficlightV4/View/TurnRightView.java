@@ -1,8 +1,6 @@
-package trafficlight.View;
+package trafficlightV4.View;
 
-import trafficlight.Controls.TrafficLightManager;
-import trafficlight.Model.LightColor;
-import trafficlight.Model.TrafficLight;
+import trafficlightV4.Model.LightColor;
 
 import javax.swing.*;
 import java.awt.*;

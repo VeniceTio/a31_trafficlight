@@ -1,4 +1,4 @@
-package trafficlight.Model;
+package trafficlightV4.Model;
 
 public class Strasbourg implements City {
 
@@ -18,7 +18,6 @@ public class Strasbourg implements City {
         }
     }
 
-    @Override
     public String getType() {
         return "Strasbourg";
     }

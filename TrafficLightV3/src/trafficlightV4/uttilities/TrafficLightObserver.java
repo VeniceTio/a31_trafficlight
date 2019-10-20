@@ -1,6 +1,6 @@
-package trafficlight.uttilities;
+package trafficlightV4.uttilities;
 
-import trafficlight.Model.LightColor;
+import trafficlightV4.Model.LightColor;
 
 public interface TrafficLightObserver {
 	public abstract void update(LightColor color, Boolean isOn );

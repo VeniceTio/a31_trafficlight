@@ -1,6 +1,6 @@
-package trafficlight.Model;
+package trafficlightV4.Model;
 
-import trafficlight.uttilities.Observable;
+import trafficlightV4.uttilities.Observable;
 
 public class TrafficLight extends Observable {
 
@@ -8,9 +8,10 @@ public class TrafficLight extends Observable {
 	private LightColor _color = LightColor.RED;
 	private City _city;
 	private int _id;
-	private static int ID=0;
+	private static int nextID =0;
 
-	public TrafficLight() {_id=ID;ID++;}
+	public TrafficLight() {_id= nextID;
+		nextID++;}
 
 	public void onOff() {
 		_isOn = !_isOn;

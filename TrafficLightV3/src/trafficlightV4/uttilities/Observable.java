@@ -1,7 +1,6 @@
-package trafficlight.uttilities;
+package trafficlightV4.uttilities;
 
-import trafficlight.Model.LightColor;
-import trafficlight.Model.TrafficLight;
+import trafficlightV4.Model.LightColor;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package trafficlight.Model;
+package trafficlightV4.Model;
 
 public class Kehl implements City{
     private LightColor _history;

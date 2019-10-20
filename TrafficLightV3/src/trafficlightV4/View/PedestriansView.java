@@ -1,10 +1,7 @@
-package trafficlight.View;
+package trafficlightV4.View;
 
-import trafficlight.Controls.TrafficLightManager;
-import trafficlight.Model.LightColor;
-import trafficlight.Model.TrafficLight;
 
-import javax.swing.*;
+import trafficlightV4.Model.LightColor;
 import java.awt.*;
 
 public class PedestriansView extends TrafficLightDecorateur {

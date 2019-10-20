@@ -1,10 +1,6 @@
-package trafficlight.Controls;
-
-import trafficlight.Model.TrafficLight;
-import trafficlight.View.Menu;
+package trafficlightV4.Controls;
 
 public class TrafficManager {
-    private TrafficLight _trafficLight;
 
 	public TrafficManager() {
 		TrafficLightViewManager.getInstance();
