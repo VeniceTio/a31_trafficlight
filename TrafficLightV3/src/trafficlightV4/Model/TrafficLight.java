@@ -1,6 +1,6 @@
 package trafficlightV4.Model;
 
-import trafficlightV4.uttilities.Observable;
+import trafficlightV4.Uttilities.Observable;
 
 public class TrafficLight extends Observable {
 

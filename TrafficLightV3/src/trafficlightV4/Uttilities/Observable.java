@@ -1,4 +1,4 @@
-package trafficlightV4.uttilities;
+package trafficlightV4.Uttilities;
 
 import trafficlightV4.Model.LightColor;
 

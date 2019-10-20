@@ -1,6 +1,6 @@
 package trafficlightV4.View;
 
-import trafficlightV4.uttilities.TrafficLightObserver;
+import trafficlightV4.Uttilities.TrafficLightObserver;
 import java.awt.BorderLayout;
 import javax.swing.*;
 

@@ -2,7 +2,7 @@ package trafficlightV4.Controls;
 
 import trafficlightV4.Model.*;
 import trafficlightV4.View.TrafficLightView;
-import trafficlightV4.uttilities.TrafficLightObserver;
+import trafficlightV4.Uttilities.TrafficLightObserver;
 
 import java.util.Collection;
 import java.util.Vector;
