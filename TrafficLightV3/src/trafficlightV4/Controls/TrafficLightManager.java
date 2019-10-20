@@ -32,7 +32,7 @@ public class TrafficLightManager {
         for(TrafficLightObserver view : obs){
             TrafficLightViewManager.getInstance().deleteView((TrafficLightView)view);
         }
-        _trafficLights.remove(id);
+        _trafficLights.remove(TFL);
     }
     public TrafficLight getTrafficLight(int id){
         TrafficLight trafficLight = null;

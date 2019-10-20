@@ -34,6 +34,7 @@ public class Menu extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 if (_cboTrafficLight.getItemCount()>1){
                     deleteTrafficLight(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
+                    _cboTrafficLight.setSelectedIndex(0);
                 }
             }
         }));

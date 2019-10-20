@@ -35,5 +35,8 @@ public class TrafficLight extends Observable {
     public Boolean getIsOn(){
 	    return this._isOn;
     }
+    public String toString(){
+		return "feu n°"+_id;
+	}
 }
 

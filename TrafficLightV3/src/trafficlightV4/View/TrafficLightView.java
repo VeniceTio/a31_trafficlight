@@ -14,7 +14,7 @@ public abstract class TrafficLightView extends JInternalFrame implements Traffic
 		this.setLayout(new BorderLayout());
 	}
 	public void changeVisibility(){this.setVisible(false);}
-	public String toString(){return "box";}
+	public String toString(){return "Vue";}
 
 }
 
