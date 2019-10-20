@@ -20,6 +20,7 @@ public class Menu extends JFrame{
         this.setLayout(new BorderLayout());
         this.setTitle("Traffic Light");
         TrafficLightManager.getInstance().addTrafficLight();
+        _cboTrafficLight.setSelectedIndex(0);
         JPanel buttons = new JPanel();
         buttons.add( new JButton( new AbstractAction("Add TrafficLight") {
             @Override
@@ -40,6 +41,7 @@ public class Menu extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 addTextualView(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
+                _cboView.setSelectedIndex(0);
             }
         }));
 
@@ -47,18 +49,23 @@ public class Menu extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 addGraphicalView(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
+                _cboView.setSelectedIndex(0);
             }
         }));
         buttons.add( new JButton( new AbstractAction("AddPedestriansView") {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 addPedestriansView(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
+                _cboView.setSelectedIndex(0);
             }
         }));
 
         buttons.add( new JButton( new AbstractAction("AddTurnRightView") {
             @Override
-            public void actionPerformed(ActionEvent arg0) { addTurnRightView(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());}
+            public void actionPerformed(ActionEvent arg0) {
+                addTurnRightView(((TrafficLight)_cboTrafficLight.getSelectedItem()).getID());
+                _cboView.setSelectedIndex(0);
+            }
         }));
         buttons.add( new JButton( new AbstractAction("On/Off") {
             @Override
@@ -85,6 +92,9 @@ public class Menu extends JFrame{
             public void actionPerformed(ActionEvent arg0) {
                 if (_cboView.getItemCount()>0){
                     TrafficLightViewManager.getInstance().deleteView((TrafficLightView) _cboView.getSelectedItem());
+                    if (_cboView.getItemCount()>0){
+                    _cboView.setSelectedIndex(0);
+                    }
                 }
             }
         }));
